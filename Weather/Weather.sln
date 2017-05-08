@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherNet", "Weather\WeatherNet.csproj", "{7964FB7A-597C-4A6B-9B09-28EEFBA34B15}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "WeatherShared", "WeatherShared\WeatherShared.shproj", "{2D6E1050-D0AD-4900-BEE3-AADE124565AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatheriOS", "WeatheriOS\WeatheriOS.csproj", "{F8FEBE6F-1EB3-4790-838F-54C3288182B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7964FB7A-597C-4A6B-9B09-28EEFBA34B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7964FB7A-597C-4A6B-9B09-28EEFBA34B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7964FB7A-597C-4A6B-9B09-28EEFBA34B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7964FB7A-597C-4A6B-9B09-28EEFBA34B15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8FEBE6F-1EB3-4790-838F-54C3288182B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8FEBE6F-1EB3-4790-838F-54C3288182B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8FEBE6F-1EB3-4790-838F-54C3288182B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8FEBE6F-1EB3-4790-838F-54C3288182B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,100 +1,100 @@
 ﻿using System;
-using System.Threading.Tasks;
 using UIKit;
 using CoreLocation;
-using System.Threading;
-
 
 public class WeatherView : UIView
 {
-    UITextField cityField, stateField;
-    UILabel info;
-    UIButton getWeatherButton, getLocationButton;
-    CLLocationManager locationManager;
-    CLGeocoder coder;
-	public WeatherView()
-    {
-        BackgroundColor = UIColor.LightGray;
-
+	UITextField cityField, stateField;
+	UILabel info;
+	UIButton getWeatherButton, getLocationButton;
+	CLLocationManager locationManager;
+	CLGeocoder coder;
+	public WeatherView ()
+	{
 		nfloat h = 31.0f;
 		nfloat w = Bounds.Width;
 
-		cityField = new UITextField
-		{
+		cityField = new UITextField {
 			Placeholder = "City",
 			BorderStyle = UITextBorderStyle.RoundedRect,
-			Frame = new CoreGraphics.CGRect(40, 32, w - 40, h),
-			AutoresizingMask = UIViewAutoresizing.FlexibleWidth
 		};
 
-		stateField = new UITextField
-        {
-            Placeholder = "State Code",
-            BorderStyle = UITextBorderStyle.RoundedRect,
-            Frame = new CoreGraphics.CGRect(40, 64, w - 40, h),
-            SecureTextEntry = false,
-			AutoresizingMask = UIViewAutoresizing.FlexibleWidth
+		stateField = new UITextField {
+			Placeholder = "State Code",
+			BorderStyle = UITextBorderStyle.RoundedRect,
+			SecureTextEntry = false,
 		};
 
-        info = new UILabel
-		{
-			
-			Frame = new CoreGraphics.CGRect(40, 96, w - 40, h),
-			AutoresizingMask = UIViewAutoresizing.FlexibleWidth
-		};
+		info = new UILabel ();
 
-        getWeatherButton = UIButton.FromType(UIButtonType.RoundedRect);
-		getWeatherButton.Frame = new CoreGraphics.CGRect(40, 150, w - 40, 44);
-		getWeatherButton.SetTitle("Get Weather", UIControlState.Normal);
+		getWeatherButton = UIButton.FromType (UIButtonType.RoundedRect);
+		getWeatherButton.SetTitle ("Get Weather", UIControlState.Normal);
 		getWeatherButton.Layer.CornerRadius = 5f;
-		getWeatherButton.AutoresizingMask = UIViewAutoresizing.FlexibleWidth;
 
-		getWeatherButton.TouchUpInside += delegate
-		{
-            var weather = new XAMWeatherFetcher(cityField.Text, stateField.Text);
-            getWeatherButton.Enabled = false;
+		getWeatherButton.TouchUpInside += delegate {
+			var weather = new XAMWeatherFetcher (cityField.Text, stateField.Text);
+			getWeatherButton.Enabled = false;
 
-            var result = weather.GetWeather();
-            info.Text = result.Temp + " " + result.Text;
+			var result = weather.GetWeather ();
+			info.Text = result.Temp + " " + result.Text;
 
-            getWeatherButton.Enabled = true;
-
+			getWeatherButton.Enabled = true;
 		};
 
-		getLocationButton = UIButton.FromType(UIButtonType.RoundedRect);
-		getLocationButton.Frame = new CoreGraphics.CGRect(40, 190, w - 40, 44);
-		getLocationButton.SetTitle("Get Location", UIControlState.Normal);
+		getLocationButton = UIButton.FromType (UIButtonType.RoundedRect);
+		getLocationButton.SetTitle ("Get Location", UIControlState.Normal);
 		getLocationButton.Layer.CornerRadius = 5f;
-		getLocationButton.AutoresizingMask = UIViewAutoresizing.FlexibleWidth;
 
-		getLocationButton.TouchUpInside += delegate
-		{
-            if (locationManager != null)
-                return;
-            
-			locationManager = new CLLocationManager();
-			locationManager.RequestWhenInUseAuthorization();
-			locationManager.LocationsUpdated += (object sender, CLLocationsUpdatedEventArgs e) =>
-			{
-				var l = e.Locations[0].Coordinate;
+		getLocationButton.TouchUpInside += delegate {
+			if (locationManager != null)
+				return;
 
-                coder = new CLGeocoder();
-                coder.ReverseGeocodeLocation(new CLLocation(l.Latitude, l.Longitude), (placemarks, error) => 
-                {
-					var weather = new XAMWeatherFetcher(placemarks[0].Locality, placemarks[0].AdministrativeArea);
+			locationManager = new CLLocationManager ();
+			locationManager.RequestWhenInUseAuthorization ();
+			locationManager.LocationsUpdated += (object sender, CLLocationsUpdatedEventArgs e) => {
+				var l = e.Locations [0].Coordinate;
+
+				coder = new CLGeocoder ();
+				coder.ReverseGeocodeLocation (new CLLocation (l.Latitude, l.Longitude), (placemarks, error) => {
+					var weather = new XAMWeatherFetcher (placemarks [0].Locality, placemarks [0].AdministrativeArea);
 					getWeatherButton.Enabled = false;
-					var result = weather.GetWeather();
-                    info.Text = result.Temp + "°F " + result.Text + "Lat/Lng = " + l.Latitude + ", " + l.Longitude;
+					var result = weather.GetWeather ();
+					info.Text = result.Temp + "°F " + result.Text + "Lat/Lng = " + l.Latitude + ", " + l.Longitude;
 
 					getWeatherButton.Enabled = true;
 
-                });
+				});
 			};
 
-			locationManager.StartUpdatingLocation();
+			locationManager.StartUpdatingLocation ();
 		};
 
-		AddSubviews(new UIView[] { cityField, stateField, info, getWeatherButton, getLocationButton });
+		// Stack views make it easier to handle auto layout
+		var mainStackView = new UIStackView {
+			TranslatesAutoresizingMaskIntoConstraints = false,
+			Axis = UILayoutConstraintAxis.Vertical,
+			Spacing = 8
+		};
+		AddSubview (mainStackView);
+
+		// Constaints for the stack view
+		mainStackView.TopAnchor.ConstraintEqualTo (LayoutMarginsGuide.TopAnchor, 20).Active = true;
+		mainStackView.LeadingAnchor.ConstraintEqualTo (LayoutMarginsGuide.LeadingAnchor).Active = true;
+		mainStackView.TrailingAnchor.ConstraintEqualTo (LayoutMarginsGuide.TrailingAnchor).Active = true;
+
+		// Add the labels to a new stack view to align them horizontally
+		var labelsStackView = new UIStackView {
+			Axis = UILayoutConstraintAxis.Horizontal,
+			Distribution = UIStackViewDistribution.FillEqually
+		};
+		labelsStackView.AddArrangedSubview (getWeatherButton);
+		labelsStackView.AddArrangedSubview (getLocationButton);
+
+		// Add all the UI elements to the main stack view
+		mainStackView.AddArrangedSubview (cityField);
+		mainStackView.AddArrangedSubview (stateField);
+		mainStackView.AddArrangedSubview (labelsStackView);
+		mainStackView.AddArrangedSubview (info);
 	}
 }
 

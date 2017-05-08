@@ -11,37 +11,25 @@ public class WeatherView : UIView
 	CLGeocoder coder;
 	public WeatherView ()
 	{
-		BackgroundColor = UIColor.LightGray;
-
 		nfloat h = 31.0f;
 		nfloat w = Bounds.Width;
 
 		cityField = new UITextField {
 			Placeholder = "City",
 			BorderStyle = UITextBorderStyle.RoundedRect,
-			Frame = new CoreGraphics.CGRect (40, 32, w - 40, h),
-			AutoresizingMask = UIViewAutoresizing.FlexibleWidth
 		};
 
 		stateField = new UITextField {
 			Placeholder = "State Code",
 			BorderStyle = UITextBorderStyle.RoundedRect,
-			Frame = new CoreGraphics.CGRect (40, 64, w - 40, h),
 			SecureTextEntry = false,
-			AutoresizingMask = UIViewAutoresizing.FlexibleWidth
 		};
 
-		info = new UILabel {
-
-			Frame = new CoreGraphics.CGRect (40, 96, w - 40, h),
-			AutoresizingMask = UIViewAutoresizing.FlexibleWidth
-		};
+		info = new UILabel ();
 
 		getWeatherButton = UIButton.FromType (UIButtonType.RoundedRect);
-		getWeatherButton.Frame = new CoreGraphics.CGRect (40, 150, w - 40, 44);
 		getWeatherButton.SetTitle ("Get Weather", UIControlState.Normal);
 		getWeatherButton.Layer.CornerRadius = 5f;
-		getWeatherButton.AutoresizingMask = UIViewAutoresizing.FlexibleWidth;
 
 		getWeatherButton.TouchUpInside += delegate {
 			var weather = new XAMWeatherFetcher (cityField.Text, stateField.Text);
@@ -51,14 +39,11 @@ public class WeatherView : UIView
 			info.Text = result.Temp + " " + result.Text;
 
 			getWeatherButton.Enabled = true;
-
 		};
 
 		getLocationButton = UIButton.FromType (UIButtonType.RoundedRect);
-		getLocationButton.Frame = new CoreGraphics.CGRect (40, 190, w - 40, 44);
 		getLocationButton.SetTitle ("Get Location", UIControlState.Normal);
 		getLocationButton.Layer.CornerRadius = 5f;
-		getLocationButton.AutoresizingMask = UIViewAutoresizing.FlexibleWidth;
 
 		getLocationButton.TouchUpInside += delegate {
 			if (locationManager != null)
@@ -84,7 +69,32 @@ public class WeatherView : UIView
 			locationManager.StartUpdatingLocation ();
 		};
 
-		AddSubviews (new UIView [] { cityField, stateField, info, getWeatherButton, getLocationButton });
+		// Stack views make it easier to handle auto layout
+		var mainStackView = new UIStackView {
+			TranslatesAutoresizingMaskIntoConstraints = false,
+			Axis = UILayoutConstraintAxis.Vertical,
+			Spacing = 8
+		};
+		AddSubview (mainStackView);
+
+		// Constaints for the stack view
+		mainStackView.TopAnchor.ConstraintEqualTo (LayoutMarginsGuide.TopAnchor, 20).Active = true;
+		mainStackView.LeadingAnchor.ConstraintEqualTo (LayoutMarginsGuide.LeadingAnchor).Active = true;
+		mainStackView.TrailingAnchor.ConstraintEqualTo (LayoutMarginsGuide.TrailingAnchor).Active = true;
+
+		// Add the labels to a new stack view to align them horizontally
+		var labelsStackView = new UIStackView {
+			Axis = UILayoutConstraintAxis.Horizontal,
+			Distribution = UIStackViewDistribution.FillEqually
+		};
+		labelsStackView.AddArrangedSubview (getWeatherButton);
+		labelsStackView.AddArrangedSubview (getLocationButton);
+
+		// Add all the UI elements to the main stack view
+		mainStackView.AddArrangedSubview (cityField);
+		mainStackView.AddArrangedSubview (stateField);
+		mainStackView.AddArrangedSubview (labelsStackView);
+		mainStackView.AddArrangedSubview (info);
 	}
 }
 

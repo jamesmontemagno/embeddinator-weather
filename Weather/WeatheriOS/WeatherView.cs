@@ -1,11 +1,12 @@
 ﻿using System;
 using UIKit;
 using CoreLocation;
+using System.Threading.Tasks;
 
 public class WeatherView : UIView
 {
 	UITextField cityField, stateField;
-	UILabel info;
+	UILabel info, latLong;
 	UIButton getWeatherButton, getLocationButton;
 	CLLocationManager locationManager;
 	CLGeocoder coder;
@@ -26,19 +27,24 @@ public class WeatherView : UIView
 		};
 
 		info = new UILabel ();
+        latLong = new UILabel();
 
 		getWeatherButton = UIButton.FromType (UIButtonType.RoundedRect);
 		getWeatherButton.SetTitle ("Get Weather", UIControlState.Normal);
 		getWeatherButton.Layer.CornerRadius = 5f;
 
 		getWeatherButton.TouchUpInside += delegate {
-			var weather = new XAMWeatherFetcher (cityField.Text, stateField.Text);
-			getWeatherButton.Enabled = false;
+            
+            getWeatherButton.Enabled = false;
 
-			var result = weather.GetWeather ();
-			info.Text = result.Temp + " " + result.Text;
 
-			getWeatherButton.Enabled = true;
+            var weather = new XAMWeatherFetcher(cityField.Text, stateField.Text);
+            var result = weather.GetWeather();
+
+
+            info.Text = result.Temp + " " + result.Text;
+
+            getWeatherButton.Enabled = true;
 		};
 
 		getLocationButton = UIButton.FromType (UIButtonType.RoundedRect);
@@ -46,26 +52,14 @@ public class WeatherView : UIView
 		getLocationButton.Layer.CornerRadius = 5f;
 
 		getLocationButton.TouchUpInside += delegate {
-			if (locationManager != null)
-				return;
-
-			locationManager = new CLLocationManager ();
-			locationManager.RequestWhenInUseAuthorization ();
-			locationManager.LocationsUpdated += (object sender, CLLocationsUpdatedEventArgs e) => {
-				var l = e.Locations [0].Coordinate;
-
-				coder = new CLGeocoder ();
-				coder.ReverseGeocodeLocation (new CLLocation (l.Latitude, l.Longitude), (placemarks, error) => {
-					var weather = new XAMWeatherFetcher (placemarks [0].Locality, placemarks [0].AdministrativeArea);
-					getWeatherButton.Enabled = false;
-					var result = weather.GetWeather ();
-					info.Text = result.Temp + "°F " + result.Text + "Lat/Lng = " + l.Latitude + ", " + l.Longitude;
-
-					getWeatherButton.Enabled = true;
-
-				});
-			};
-
+			if (locationManager == null)
+            {
+				locationManager = new CLLocationManager();
+				locationManager.RequestWhenInUseAuthorization();
+                locationManager.LocationsUpdated += LocationManager_LocationsUpdated;
+            }
+            getWeatherButton.Enabled = false;
+            getLocationButton.Enabled = false;
 			locationManager.StartUpdatingLocation ();
 		};
 
@@ -95,6 +89,38 @@ public class WeatherView : UIView
 		mainStackView.AddArrangedSubview (stateField);
 		mainStackView.AddArrangedSubview (labelsStackView);
 		mainStackView.AddArrangedSubview (info);
+        mainStackView.AddArrangedSubview(latLong);
 	}
+
+    void LocationManager_LocationsUpdated(object sender, CLLocationsUpdatedEventArgs e)
+    {
+        locationManager.StopUpdatingLocation();
+		var l = e.Locations[0].Coordinate;
+
+
+		coder = new CLGeocoder();
+		coder.ReverseGeocodeLocation(new CLLocation(l.Latitude, l.Longitude), (placemarks, error) =>
+		{
+
+			var city = placemarks[0].Locality;
+			var state = placemarks[0].AdministrativeArea;
+			var weather = new XAMWeatherFetcher(city, state);
+			
+			var result = weather.GetWeather();
+
+            InvokeOnMainThread(()=>
+            {
+    			info.Text = result.Temp + "°F " + result.Text;
+    			latLong.Text = l.Latitude + ", " + l.Longitude;
+    			cityField.Text = result.City;
+    			stateField.Text = result.State;
+
+				getWeatherButton.Enabled = true;
+				getLocationButton.Enabled = true;
+            });
+
+		});
+		     
+    }
 }
 

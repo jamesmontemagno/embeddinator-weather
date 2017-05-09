@@ -20,12 +20,15 @@ public class XAMWeatherFetcher
     {
         try
         {
+            if(string.IsNullOrWhiteSpace(City) || string.IsNullOrWhiteSpace(State))
+                return null;
+            
             using (var wc = new WebClient())
             {
                 var url = string.Format(urlTemplate, City, State);
                 var str = wc.DownloadString(url);
                 var json = JsonValue.Parse(str)["query"]["results"]["channel"]["item"]["condition"];
-                var result = new XAMWeatherResult(json["temp"], json["text"]);
+                var result = new XAMWeatherResult(json["temp"], json["text"], City, State);
                 return result;
             }
         }

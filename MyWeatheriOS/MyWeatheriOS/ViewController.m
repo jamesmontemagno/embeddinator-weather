@@ -24,7 +24,7 @@
     [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
     
     WeatherView *view = [[WeatherView alloc] init];
-    view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    view.frame = CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height - 60);
     [self.view addSubview: view];
 }
 

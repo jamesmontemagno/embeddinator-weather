@@ -26,8 +26,12 @@ public class WeatherView : UIView
 			SecureTextEntry = false,
 		};
 
-		info = new UILabel ();
-        latLong = new UILabel();
+		info = new UILabel {
+			TextAlignment = UITextAlignment.Center
+		};
+		latLong = new UILabel {
+			TextAlignment = UITextAlignment.Center
+		};
 
 		getWeatherButton = UIButton.FromType (UIButtonType.RoundedRect);
 		getWeatherButton.SetTitle ("Get Weather", UIControlState.Normal);
@@ -67,12 +71,12 @@ public class WeatherView : UIView
 		var mainStackView = new UIStackView {
 			TranslatesAutoresizingMaskIntoConstraints = false,
 			Axis = UILayoutConstraintAxis.Vertical,
-			Spacing = 8
+			Spacing = 10
 		};
 		AddSubview (mainStackView);
 
 		// Constaints for the stack view
-		mainStackView.TopAnchor.ConstraintEqualTo (LayoutMarginsGuide.TopAnchor, 20).Active = true;
+		mainStackView.TopAnchor.ConstraintEqualTo (LayoutMarginsGuide.TopAnchor, 30).Active = true;
 		mainStackView.LeadingAnchor.ConstraintEqualTo (LayoutMarginsGuide.LeadingAnchor).Active = true;
 		mainStackView.TrailingAnchor.ConstraintEqualTo (LayoutMarginsGuide.TrailingAnchor).Active = true;
 

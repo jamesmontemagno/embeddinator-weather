@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /** Class XAMWeatherFetcher
- *  Corresponding .NET Qualified Name: `XAMWeatherFetcher, WeatheriOS, Version=1.0.6337.37047, Culture=neutral, PublicKeyToken=null`
+ *  Corresponding .NET Qualified Name: `XAMWeatherFetcher, WeatheriOS, Version=1.0.6340.20878, Culture=neutral, PublicKeyToken=null`
  */
 @interface XAMWeatherFetcher : NSObject {
 	// This field is not meant to be accessed from user code
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /** Class XAMWeatherResult
- *  Corresponding .NET Qualified Name: `XAMWeatherResult, WeatheriOS, Version=1.0.6337.37047, Culture=neutral, PublicKeyToken=null`
+ *  Corresponding .NET Qualified Name: `XAMWeatherResult, WeatheriOS, Version=1.0.6340.20878, Culture=neutral, PublicKeyToken=null`
  */
 @interface XAMWeatherResult : NSObject {
 	// This field is not meant to be accessed from user code

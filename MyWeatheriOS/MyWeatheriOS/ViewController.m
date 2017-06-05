@@ -36,6 +36,7 @@
 
 
 - (IBAction)GetWeatherClick:(id)sender {
+    
     XAMWeatherFetcher * fetcher = [[XAMWeatherFetcher alloc] initWithCity:_TextFieldCity.text state:_TextFieldState.text];
     
     XAMWeatherResult * result = [fetcher getWeather];

@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		650D6D441EC170B2009E9846 /* WeatheriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650D6D431EC170B2009E9846 /* WeatheriOS.framework */; };
-		650D6D451EC1716C009E9846 /* WeatheriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650D6D431EC170B2009E9846 /* WeatheriOS.framework */; };
-		650D6D461EC1716C009E9846 /* WeatheriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 650D6D431EC170B2009E9846 /* WeatheriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		655C35971EC0E6600050C5AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 655C35961EC0E6600050C5AB /* main.m */; };
 		655C359A1EC0E6600050C5AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 655C35991EC0E6600050C5AB /* AppDelegate.m */; };
 		655C359D1EC0E6600050C5AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 655C359C1EC0E6600050C5AB /* ViewController.m */; };
 		655C35A01EC0E6600050C5AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655C359E1EC0E6600050C5AB /* Main.storyboard */; };
 		655C35A21EC0E6600050C5AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 655C35A11EC0E6600050C5AB /* Assets.xcassets */; };
 		655C35A51EC0E6600050C5AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655C35A31EC0E6600050C5AB /* LaunchScreen.storyboard */; };
+		656D14D31EC4E705006E9A17 /* WeatheriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656D14D21EC4E705006E9A17 /* WeatheriOS.framework */; };
+		656D14D41EC4E70E006E9A17 /* WeatheriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656D14D21EC4E705006E9A17 /* WeatheriOS.framework */; };
+		656D14D51EC4E70E006E9A17 /* WeatheriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 656D14D21EC4E705006E9A17 /* WeatheriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,7 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				650D6D461EC1716C009E9846 /* WeatheriOS.framework in Embed Frameworks */,
+				656D14D51EC4E70E006E9A17 /* WeatheriOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -33,7 +33,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		650D6D431EC170B2009E9846 /* WeatheriOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WeatheriOS.framework; sourceTree = "<group>"; };
 		655C35921EC0E6600050C5AB /* MyWeatheriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeatheriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		655C35961EC0E6600050C5AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		655C35981EC0E6600050C5AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		655C35A11EC0E6600050C5AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		655C35A41EC0E6600050C5AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		655C35A61EC0E6600050C5AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		656D14D21EC4E705006E9A17 /* WeatheriOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WeatheriOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				650D6D441EC170B2009E9846 /* WeatheriOS.framework in Frameworks */,
-				650D6D451EC1716C009E9846 /* WeatheriOS.framework in Frameworks */,
+				656D14D31EC4E705006E9A17 /* WeatheriOS.framework in Frameworks */,
+				656D14D41EC4E70E006E9A17 /* WeatheriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +62,7 @@
 		655C35891EC0E6600050C5AB = {
 			isa = PBXGroup;
 			children = (
-				650D6D431EC170B2009E9846 /* WeatheriOS.framework */,
+				656D14D21EC4E705006E9A17 /* WeatheriOS.framework */,
 				655C35941EC0E6600050C5AB /* MyWeatheriOS */,
 				655C35931EC0E6600050C5AB /* Products */,
 			);

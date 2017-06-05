@@ -27,6 +27,15 @@
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
     <MtouchLink></MtouchLink>
     <MtouchHttpClientHandler></MtouchHttpClientHandler>
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>AfterBuild</type>
+          <command>/Library/Frameworks/Xamarin.Embeddinator-4000/Commands/objcgen bin/Debug/WeatheriOS.dll --target=framework --platform=iOS --outdir=output -c --debug</command>
+          <externalConsole>True</externalConsole>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>

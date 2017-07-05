@@ -1,13 +1,22 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherNet", "Weather\WeatherNet.csproj", "{7964FB7A-597C-4A6B-9B09-28EEFBA34B15}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "WeatherShared", "WeatherShared\WeatherShared.shproj", "{2D6E1050-D0AD-4900-BEE3-AADE124565AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatheriOS", "WeatheriOS\WeatheriOS.csproj", "{F8FEBE6F-1EB3-4790-838F-54C3288182B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherAndroid", "WeatherAndroid\WeatherAndroid.csproj", "{8CA640E4-767F-4A2D-ACF0-A95082A9E2E5}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		WeatherShared\WeatherShared.projitems*{2d6e1050-d0ad-4900-bee3-aade124565af}*SharedItemsImports = 13
+		WeatherShared\WeatherShared.projitems*{7964fb7a-597c-4a6b-9b09-28eefba34b15}*SharedItemsImports = 4
+		WeatherShared\WeatherShared.projitems*{8ca640e4-767f-4a2d-acf0-a95082a9e2e5}*SharedItemsImports = 4
+		WeatherShared\WeatherShared.projitems*{f8febe6f-1eb3-4790-838f-54c3288182b0}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -21,5 +30,12 @@ Global
 		{F8FEBE6F-1EB3-4790-838F-54C3288182B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8FEBE6F-1EB3-4790-838F-54C3288182B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8FEBE6F-1EB3-4790-838F-54C3288182B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CA640E4-767F-4A2D-ACF0-A95082A9E2E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CA640E4-767F-4A2D-ACF0-A95082A9E2E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CA640E4-767F-4A2D-ACF0-A95082A9E2E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CA640E4-767F-4A2D-ACF0-A95082A9E2E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

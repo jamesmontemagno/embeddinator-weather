@@ -10,6 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatheriOS", "WeatheriOS\We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherAndroid", "WeatherAndroid\WeatherAndroid.csproj", "{8CA640E4-767F-4A2D-ACF0-A95082A9E2E5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E5FEC633-A5D1-46BA-904B-5FD265F8CA9C}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		WeatherShared\WeatherShared.projitems*{2d6e1050-d0ad-4900-bee3-aade124565af}*SharedItemsImports = 13

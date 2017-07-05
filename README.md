@@ -32,3 +32,6 @@ Install the latest version of Embeddinator from: https://mono.github.io/Embeddin
 5. Open MyWeatheriOS.xcodeproj, note that these file will be already references under embeddinator. Ensure that you update the framework which lives in MyWeatheriOS, or copy and paste it there.
 6. Ensure in project settings under build phases that the .framework is set to code sign on copy and is an embedded framework. 
 7. Run the app
+
+### Getting Started for Android
+* Coming soon.

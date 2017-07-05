@@ -15,6 +15,9 @@
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
+[Ww]eather/Weather/output/
+[Ww]eather/WeatheriOS/output/
+[Ww]eather/WeatherAndroid/output/
 x64/
 x86/
 bld/
@@ -250,3 +253,5 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+*.xcuserstate

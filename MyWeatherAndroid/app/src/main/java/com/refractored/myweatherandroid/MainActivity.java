@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 XAMWeatherFetcher fetcher = new XAMWeatherFetcher(city.getText().toString(), state.getText().toString());
                 XAMWeatherResult result = fetcher.getWeather();
                 if (result != null) {
-                    weather.setText(result.getText());
+                    weather.setText(result.getTemp() + "°F " +  result.getText());
                 } else {
                     weather.setText("An error occurred :(");
                 }

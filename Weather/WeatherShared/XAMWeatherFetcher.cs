@@ -35,9 +35,11 @@ public class XAMWeatherFetcher
         catch (Exception ex)
         {
             // Log some of the exception messages
-            Console.WriteLine(ex.Message);
-            Console.WriteLine(ex.InnerException?.Message);
-            Console.WriteLine(ex.InnerException?.InnerException?.Message);
+#if __ANDROID__
+            Android.Util.Log.Error("XAMWeather", ex.ToString());
+#else
+            Console.WriteLine(ex.ToString());
+#endif
 
             return null;
         }

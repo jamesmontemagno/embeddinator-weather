@@ -25,6 +25,23 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>AfterBuild</type>
+          <command>rm -Rf '${SolutionDir}/androidoutput/'</command>
+        </Command>
+        <Command>
+          <type>AfterBuild</type>
+          <command>mono '${SolutionDir}/packages/Embeddinator-4000.0.3.0/tools/Embeddinator-4000.exe' '${TargetPath}' --gen=Java --platform=Android --outdir='${SolutionDir}/androidoutput' -c</command>
+          <externalConsole>True</externalConsole>
+        </Command>
+        <Command>
+          <type>AfterBuild</type>
+          <command>cp '${SolutionDir}/androidoutput/WeatherAndroid.aar' '${SolutionDir}/../MyWeatherAndroid/WeatherAndroid'</command>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>

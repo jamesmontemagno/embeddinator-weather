@@ -30,11 +30,19 @@
     <MtouchHttpClientHandler>
     </MtouchHttpClientHandler>
     <CustomCommands>
-      <CustomCommands>
+	 <CustomCommands>
         <Command>
           <type>AfterBuild</type>
-          <command>/Library/Frameworks/Xamarin.Embeddinator-4000/Commands/objcgen bin/Debug/WeatheriOS.dll --target=framework --platform=iOS --outdir=output -c --debug</command>
+          <command>rm -Rf '${SolutionDir}/iosoutput/'</command>
+        </Command>
+        <Command>
+          <type>AfterBuild</type>
+          <command>mono '${SolutionDir}/packages/Embeddinator-4000.0.3.0/tools/objcgen.exe' 'bin/Debug/WeatheriOS.dll' --target=framework --platform=iOS --outdir='${SolutionDir}/iosoutput' -c --debug</command>
           <externalConsole>True</externalConsole>
+        </Command>
+        <Command>
+          <type>AfterBuild</type>
+          <command>cp -R '${SolutionDir}/iosoutput/WeatheriOS.framework' '${SolutionDir}/../MyWeatheriOS/WeatheriOS.framework'</command>
         </Command>
       </CustomCommands>
     </CustomCommands>

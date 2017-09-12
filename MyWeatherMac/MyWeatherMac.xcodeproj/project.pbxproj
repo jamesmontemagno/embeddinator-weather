@@ -12,10 +12,8 @@
 		6535FB2B1EC0DA09009737DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6535FB2A1EC0DA09009737DA /* ViewController.m */; };
 		6535FB2D1EC0DA09009737DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6535FB2C1EC0DA09009737DA /* Assets.xcassets */; };
 		6535FB301EC0DA09009737DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6535FB2E1EC0DA09009737DA /* Main.storyboard */; };
-		65608E4F1EE5C31E00C032DF /* libWeather.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65608E4B1EE5C31E00C032DF /* libWeather.dylib */; };
-		65608E511EE5C32900C032DF /* Weather.dll in Resources */ = {isa = PBXBuildFile; fileRef = 65608E501EE5C32900C032DF /* Weather.dll */; };
-		65608E521EE5C33000C032DF /* libWeather.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 65608E4B1EE5C31E00C032DF /* libWeather.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		65608E531EE5C33400C032DF /* Weather.dll in Copy Files */ = {isa = PBXBuildFile; fileRef = 65608E501EE5C32900C032DF /* Weather.dll */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B3E3228D1F68A3DF00822058 /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3E3228C1F68A3DF00822058 /* Weather.framework */; };
+		B3E3228E1F68A3ED00822058 /* Weather.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B3E3228C1F68A3DF00822058 /* Weather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				65608E521EE5C33000C032DF /* libWeather.dylib in CopyFiles */,
+				B3E3228E1F68A3ED00822058 /* Weather.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,7 +33,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
-				65608E531EE5C33400C032DF /* Weather.dll in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,14 +49,7 @@
 		6535FB2C1EC0DA09009737DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6535FB2F1EC0DA09009737DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6535FB311EC0DA09009737DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65608E481EE5C31E00C032DF /* bindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bindings.h; sourceTree = "<group>"; };
-		65608E491EE5C31E00C032DF /* embeddinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = embeddinator.h; sourceTree = "<group>"; };
-		65608E4A1EE5C31E00C032DF /* glib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glib.h; sourceTree = "<group>"; };
-		65608E4B1EE5C31E00C032DF /* libWeather.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libWeather.dylib; sourceTree = "<group>"; };
-		65608E4C1EE5C31E00C032DF /* mono_embeddinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mono_embeddinator.h; sourceTree = "<group>"; };
-		65608E4D1EE5C31E00C032DF /* mono-support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mono-support.h"; sourceTree = "<group>"; };
-		65608E4E1EE5C31E00C032DF /* objc-support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "objc-support.h"; sourceTree = "<group>"; };
-		65608E501EE5C32900C032DF /* Weather.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = Weather.dll; sourceTree = "<group>"; };
+		B3E3228C1F68A3DF00822058 /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65608E4F1EE5C31E00C032DF /* libWeather.dylib in Frameworks */,
+				B3E3228D1F68A3DF00822058 /* Weather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,9 +67,9 @@
 		6535FB171EC0DA09009737DA = {
 			isa = PBXGroup;
 			children = (
-				653743471EC0ED3F00058D7D /* Embeddinator */,
 				6535FB221EC0DA09009737DA /* MyWeatherMac */,
 				6535FB211EC0DA09009737DA /* Products */,
+				B3E3228B1F68A3DE00822058 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,20 +104,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		653743471EC0ED3F00058D7D /* Embeddinator */ = {
+		B3E3228B1F68A3DE00822058 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				65608E501EE5C32900C032DF /* Weather.dll */,
-				65608E481EE5C31E00C032DF /* bindings.h */,
-				65608E491EE5C31E00C032DF /* embeddinator.h */,
-				65608E4A1EE5C31E00C032DF /* glib.h */,
-				65608E4B1EE5C31E00C032DF /* libWeather.dylib */,
-				65608E4C1EE5C31E00C032DF /* mono_embeddinator.h */,
-				65608E4D1EE5C31E00C032DF /* mono-support.h */,
-				65608E4E1EE5C31E00C032DF /* objc-support.h */,
+				B3E3228C1F68A3DF00822058 /* Weather.framework */,
 			);
-			name = Embeddinator;
-			path = MyWeatherMac;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +145,7 @@
 				TargetAttributes = {
 					6535FB1F1EC0DA09009737DA = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 8P95D2238B;
+						DevelopmentTeam = 75Q8S623KB;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -192,7 +174,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6535FB2D1EC0DA09009737DA /* Assets.xcassets in Resources */,
-				65608E511EE5C32900C032DF /* Weather.dll in Resources */,
 				6535FB301EC0DA09009737DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,7 +300,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8P95D2238B;
+				DEVELOPMENT_TEAM = 75Q8S623KB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyWeatherMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -338,7 +323,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8P95D2238B;
+				DEVELOPMENT_TEAM = 75Q8S623KB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyWeatherMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (

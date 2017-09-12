@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "bindings.h"
+#import "Weather/Weather.h"
 
 @implementation ViewController
 

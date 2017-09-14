@@ -20,22 +20,22 @@
     <ConsolePause>false</ConsolePause>
 
 	<CustomCommands>
-     <CustomCommands>
-        <Command>
-          <type>AfterBuild</type>
-          <command>rm -Rf '${SolutionDir}/macoutput/'</command>
-        </Command>
-        <Command>
-          <type>AfterBuild</type>
-          <command>mono '${SolutionDir}/packages/Embeddinator-4000.0.3.0/tools/objcgen.exe' 'bin/Debug/Weather.dll' --target=framework --platform=mac --outdir='${SolutionDir}/macoutput' -c --debug</command>
-          <externalConsole>True</externalConsole>
-        </Command>
-        <Command>
-          <type>AfterBuild</type>
-          <command>cp -R '${SolutionDir}/macoutput/Weather.framework' '${SolutionDir}/../MyWeatherMac/Weather.framework'</command>
-        </Command>
-      </CustomCommands>
-    </CustomCommands>
+	  <CustomCommands>
+	    <Command>
+	      <type>AfterBuild</type>
+	      <command>rm -Rf '${SolutionDir}/macoutput/'</command>
+	    </Command>
+	    <Command>
+	      <type>AfterBuild</type>
+	      <command>mono '${SolutionDir}/packages/Embeddinator-4000.0.3.0/tools/objcgen.exe' 'bin/Debug/Weather.dll' --target=framework --platform=mac --outdir='${SolutionDir}/macoutput' -c --debug</command>
+	      <externalConsole>True</externalConsole>
+	    </Command>
+	    <Command>
+	      <type>AfterBuild</type>
+	      <command>cp -R '${SolutionDir}/macoutput/Weather.framework/' '${SolutionDir}/../MyWeatherMac/Weather.framework'</command>
+	    </Command>
+	  </CustomCommands>
+	</CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>

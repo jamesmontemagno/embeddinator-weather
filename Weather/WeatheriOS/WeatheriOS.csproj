@@ -30,7 +30,7 @@
     <MtouchHttpClientHandler>
     </MtouchHttpClientHandler>
     <CustomCommands>
-	 <CustomCommands>
+      <CustomCommands>
         <Command>
           <type>AfterBuild</type>
           <command>rm -Rf '${SolutionDir}/iosoutput/'</command>
@@ -42,7 +42,7 @@
         </Command>
         <Command>
           <type>AfterBuild</type>
-          <command>cp -R '${SolutionDir}/iosoutput/WeatheriOS.framework' '${SolutionDir}/../MyWeatheriOS/WeatheriOS.framework'</command>
+          <command>cp -R '${SolutionDir}/iosoutput/WeatheriOS.framework/' '${SolutionDir}/../MyWeatheriOS/WeatheriOS.framework'</command>
         </Command>
       </CustomCommands>
     </CustomCommands>

@@ -256,3 +256,5 @@ paket-files/
 
 *.xcuserstate
 androidoutput/
+iosoutput/
+macoutput/
